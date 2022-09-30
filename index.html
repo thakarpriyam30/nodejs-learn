@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="demo">
+<h1>The XMLHttpRequest Object</h1>
+</div>
+<!-- 1. input = tag (element) -->
+<!-- 2. type,value = attribute(property) -->
+<!-- 3. button = attribite value -->
+<input type="button" value="submit" onclick="loadDoc()"/>
+<script>
+function loadDoc() {
+  console.log('in finction')
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://127.0.0.1:8081/",true);
+  xhttp.send();
+}
+
+</script>
+
+</body>
+</html>
+
